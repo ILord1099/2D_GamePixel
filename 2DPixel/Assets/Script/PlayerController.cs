@@ -33,10 +33,11 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        vel = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.linearVelocity.y);
+        vel = new Vector2(Input.GetAxisRaw("Horizontal") * speed*2, rb.linearVelocity.y);
 
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
+            skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"),1, 1);
             skin.GetComponent<Animator>().SetBool("PlayerRun",true);
         }
         else
